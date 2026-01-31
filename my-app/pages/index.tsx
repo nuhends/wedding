@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import { GetServerSideProps } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
@@ -13,6 +13,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    redirect: {
+      destination: "https://w.theirmood.com/card/GioSnEudW0",
+      permanent: false,
+    },
+  };
+};
+
 export default function Home() {
   return (
     <>
@@ -24,9 +33,7 @@ export default function Home() {
       </Head>
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main>이쁜이 바봉바봉</main>
-      </div>
+      />
     </>
   );
 }
